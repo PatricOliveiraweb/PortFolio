@@ -1,0 +1,126 @@
+.split {
+  overflow: hidden;
+  display: flex;
+
+  .show {
+    transform-origin: 0 50%;
+    display: flex;
+    transform-origin: 0 50%;
+    transform: translateY(100%);
+  }
+  &.active {
+    .show {
+      animation: show 1s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+    }
+  }
+}
+
+.fadeIn {
+  opacity: 0;
+  animation: showOpacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+}
+
+@keyframes show {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translate(0, 0%);
+  }
+}
+
+@keyframes showOpacity {
+  0% {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, 0%);
+    opacity: 1;
+  }
+}
+
+.bars {
+  display: inline-flex;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: $color-black;
+    animation: blockBars 2s ease-in-out forwards;
+  }
+  .fadeIn {
+    animation: showOpacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+    animation-delay: 2s;
+  }
+}
+
+@keyframes blockBars {
+  0% {
+    width: 0%;
+    left: 0%;
+  }
+  50% {
+    left: 0%;
+    width: 100%;
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
+}
+
+.imageAnmation {
+  &.active {
+    animation: imageUp 0.8s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+    @for $i from 1 through 3 {
+      &:nth-child(#{$i}n) {
+        animation-delay: #{$i * 0.3}s;
+      }
+    }
+  }
+}
+
+@keyframes imageUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+[data-anime="split"] {
+  overflow: hidden;
+  display: flex;
+
+  [data-anime="show"] {
+    transform-origin: 0 50%;
+    display: flex;
+    transform-origin: 0 50%;
+    transform: translateY(100%);
+    transition: 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  [data-anime="fadeIn"] {
+    transition: 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+}
+
+[data-anime="image"] {
+  transform: translateY(100%);
+  opacity: 0;
+  transition: 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+  &:nth-child(2) {
+    transition-delay: 0.5s;
+  }
+  &:nth-child(3) {
+    transition-delay: 1s;
+  }
+}

@@ -1,0 +1,64 @@
+@import "../../../scss/main.scss";
+
+.work {
+  margin-top: 15px;
+  transition: 0.3s ease-in-out;
+  a {
+    @include subTitle;
+    display: inline-flex;
+    color: $color-secondary;
+    align-items: center;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+
+    span {
+      position: relative;
+      display: flex;
+      align-items: center;
+      &::after {
+        content: "";
+        opacity: 0;
+        transition: 0.3s ease-in-out;
+        display: inline-flex;
+        border-width: 0px 0 0px 0px;
+        border-style: solid;
+      }
+    }
+
+    &:hover {
+      text-decoration: underline;
+      span {
+        &::before {
+          background: $color-secondary;
+        }
+        &::after {
+          opacity: 1;
+          border-width: 8px 0 8px 8px;
+          border-radius: 10px;
+          border-color: transparent transparent transparent $color-secondary;
+        }
+      }
+    }
+  }
+  p,
+  figcaption {
+    @include smallText;
+  }
+  figcaption {
+    text-align: right;
+  }
+  figure {
+    display: flex;
+    margin: 10px 0;
+    img {
+      width: 100%;
+      max-width: 260px;
+      @include media("<=tablet") {
+        max-width: 200px;
+      }
+      @include media("<=small") {
+        max-width: 100px;
+      }
+    }
+  }
+}

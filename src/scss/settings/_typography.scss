@@ -1,0 +1,55 @@
+//Texts
+@mixin title {
+  font-size: 2rem;
+  line-height: 3.25rem;
+  color: $color-black;
+  font-weight: 400;
+  font-family: $font-secondary;
+  @include media("<=tablet") {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+@mixin titleLarge {
+  font-size: 4.5rem;
+  line-height: 5rem;
+  color: $color-black;
+  font-weight: 400;
+  max-width: 75rem;
+  font-family: $font-secondary;
+  @include media("<=large") {
+    font-size: 3.5rem;
+    line-height: 5.25rem;
+  }
+  @include media("<=medium") {
+    font-size: 3rem;
+    line-height: 4.25rem;
+    max-width: 65rem;
+  }
+  @include media("<=tablet") {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+@mixin subTitle {
+  font-size: 1.5rem;
+  line-height: 2.25rem;
+  color: $color-black;
+  font-family: $font-primary;
+}
+
+@mixin text {
+  font-size: 1rem;
+  line-height: 1.43rem;
+  color: $color-black;
+  font-family: $font-primary;
+}
+
+@mixin smallText {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: $color-black;
+  font-family: $font-primary;
+}

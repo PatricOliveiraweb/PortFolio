@@ -1,0 +1,65 @@
+@import "../scss/main.scss";
+
+.banner {
+  position: relative;
+  &__header {
+    display: flex;
+    margin: 120px 60px 0;
+    align-items: center;
+    justify-content: space-between;
+    @include media("<=tablet") {
+      margin: 60px 15px 0;
+    }
+
+    h2 {
+      @include titleLarge;
+      position: relative;
+
+      &::before {
+        content: "“ ";
+        position: absolute;
+        color: $color-primary;
+        font-size: 10rem;
+        @include media("<=tablet") {
+          font-size: 5rem;
+        }
+      }
+      .bars {
+        line-height: 1.3;
+        &:first-child {
+          margin-left: 4rem;
+          @include media("<=tablet") {
+            margin-left: 1rem;
+          }
+        }
+
+        @for $i from 1 through 10 {
+          &:nth-child(#{$i}n) {
+            &::before {
+              animation-delay: #{$i * 0.5}s;
+            }
+            .fadeIn {
+              animation-delay: #{$i * 0.5 + 1.5}s;
+            }
+          }
+        }
+      }
+      strong {
+        font-size: 10rem;
+        transform: translateY(2rem);
+        color: $color-primary;
+        margin-right: 15px;
+      }
+    }
+    &__quotation {
+      font-size: 5rem;
+      color: $color-primary;
+      line-height: 1rem;
+      transform: translateY(1rem);
+      display: inline-block;
+    }
+  }
+  .backIconRight {
+    top: 10%;
+  }
+}

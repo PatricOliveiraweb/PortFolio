@@ -1,0 +1,44 @@
+@import "../scss/main.scss";
+
+.assign {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 220px;
+  @include media("<=tablet") {
+    margin: 0 20px;
+    margin-top: 40px;
+  }
+  h2 {
+    @include title;
+    margin-right: 20px;
+    @include media("<=tablet") {
+      margin-right: 10px;
+    }
+  }
+  .show {
+    animation-delay: 3.7s;
+    align-items: center;
+  }
+  a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: $color-secondary;
+    transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    svg {
+      width: 1.25rem;
+      fill: $color-secondary;
+      margin-right: 10px;
+      transition: 0.3s ease-in-out;
+    }
+
+    &:hover {
+      text-decoration: underline;
+      svg {
+        transform: scale(1.1);
+      }
+    }
+  }
+}

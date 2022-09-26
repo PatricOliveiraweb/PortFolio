@@ -1,0 +1,30 @@
+@import "../../../scss/main.scss";
+
+.works {
+  margin-top: 180px;
+  position: relative;
+  @include media("<=tablet") {
+    margin-top: 120px;
+  }
+
+  ul {
+    list-style: none;
+    li {
+      margin-left: 275px;
+      @include media("<=tablet") {
+        margin-left: 50px;
+      }
+    }
+  }
+  .backIconLeft {
+    @for $i from 1 through 4 {
+      @if ($i == 1) {
+        top: calc(15%);
+      } @else {
+        &:nth-child(#{$i}n + 1) {
+          top: calc(25% * $i);
+        }
+      }
+    }
+  }
+}

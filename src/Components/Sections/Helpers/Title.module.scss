@@ -1,0 +1,14 @@
+@import "../../../scss/main.scss";
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  @include title;
+
+  &::before {
+    content: "";
+    width: 30px;
+    height: 5px;
+    background: $color-primary;
+    margin-right: 10px;
+  }
+}

@@ -1,0 +1,15 @@
+@import "../../../scss/main.scss";
+
+.skill {
+  display: flex;
+  align-items: center;
+  @include text;
+  margin-top: 15px;
+  a {
+    text-decoration: none;
+    color: $color-secondary;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
