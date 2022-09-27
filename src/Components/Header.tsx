@@ -13,6 +13,10 @@ export default function Header({ animation }: AnimationProps) {
     ) as HTMLAnchorElement;
     e.preventDefault();
     if (hash) {
+      if (mobile) {
+        document.querySelector("body")!.classList.toggle("noscroll");
+        setMenu(!menu);
+      }
       return window.scrollTo({
         top: hash.offsetTop - 150,
         left: 0,
